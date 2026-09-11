@@ -1,3 +1,36 @@
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 :root {
   --cream: #f7f1e4;
   --paper: #fffdf8;
@@ -24,7 +57,15 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: Vazirmatn, Tahoma, sans-serif;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Dana", Tahoma, sans-serif;
 }
 
 a {
@@ -202,7 +243,7 @@ h1 {
   background: transparent;
   padding: 10px 17px;
   border-radius: 999px;
-  font: 600 13px Vazirmatn;
+  font: 600 13px "Dana";
   color: #536058;
   cursor: pointer;
   transition: .2s;
@@ -387,7 +428,7 @@ main {
   color: #fff;
   padding: 9px 13px;
   border-radius: 10px;
-  font: 600 11px Vazirmatn;
+  font: 600 11px "Dana";
   cursor: pointer;
 }
 
