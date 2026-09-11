@@ -5,88 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>صبحانه دیدار سیسنگان</title>
   <meta name="description" content="منوی صبحانه مجموعه دیدار سیسنگان">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --cream:#f7f1e4; --paper:#fffdf8; --green:#173f32; --green2:#245846;
-      --sage:#dce7d8; --orange:#d97936; --orange2:#ef9a50; --ink:#18231f;
-      --muted:#6f766f; --line:#e6dfd2; --shadow:0 18px 55px rgba(23,63,50,.10);
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}
-    a{text-decoration:none;color:inherit}
-    .topbar{height:6px;background:linear-gradient(90deg,var(--green),var(--orange),var(--green))}
-    header{position:relative;overflow:hidden;background:var(--green);color:#fff}
-    header:before{content:"";position:absolute;inset:0;opacity:.09;background-image:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1.5px);background-size:24px 24px}
-    .hero{position:relative;max-width:1180px;margin:auto;padding:58px 24px 46px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px}
-    .brand{display:flex;align-items:center;gap:14px;margin-bottom:25px}
-    .mark{width:48px;height:48px;border:1px solid rgba(255,255,255,.3);border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:21px;background:rgba(255,255,255,.08)}
-    .brand small{display:block;color:#cddbd4;font-size:12px}.brand strong{font-size:18px}
-    h1{font-size:clamp(34px,5vw,60px);line-height:1.12;margin:0 0 15px;font-weight:800;letter-spacing:-1px}
-    .hero p{margin:0;color:#d7e2dc;max-width:590px;line-height:2;font-size:15px}
-    .hero-badge{background:#f5ead7;color:var(--green);padding:17px 20px;border-radius:22px;min-width:160px;text-align:center;box-shadow:0 15px 40px rgba(0,0,0,.12)}
-    .hero-badge b{display:block;font-size:24px}.hero-badge span{font-size:12px;color:#637068}
-    .controls{max-width:1180px;margin:-22px auto 0;padding:0 24px;position:relative;z-index:2}
-    .control-box{background:var(--paper);border:1px solid rgba(23,63,50,.08);border-radius:24px;box-shadow:var(--shadow);padding:15px;display:flex;gap:12px;align-items:center}
-    .search{flex:1;position:relative}.search input{width:100%;border:0;outline:0;background:#f5f1e8;border-radius:15px;padding:14px 45px 14px 15px;font-family:inherit;font-size:14px;color:var(--ink)}
-    .search span{position:absolute;right:16px;top:11px;font-size:19px;color:var(--muted)}
-    .categories{max-width:1180px;margin:30px auto 10px;padding:0 24px;display:flex;gap:9px;overflow:auto;scrollbar-width:none}
-    .categories::-webkit-scrollbar{display:none}.cat{white-space:nowrap;border:1px solid #ddd5c7;background:transparent;padding:10px 17px;border-radius:999px;font:600 13px Vazirmatn;color:#536058;cursor:pointer;transition:.2s}
-    .cat.active,.cat:hover{background:var(--green);border-color:var(--green);color:#fff}
-    main{max-width:1180px;margin:auto;padding:18px 24px 75px}
-    .section{margin-top:35px;scroll-margin-top:20px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
-    .section-head h2{margin:0;color:var(--green);font-size:23px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:12px}
-    .section-count{background:var(--sage);color:var(--green);padding:7px 11px;border-radius:10px;font-size:11px;font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--paper);border:1px solid rgba(23,63,50,.08);border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(23,63,50,.055);transition:transform .25s,box-shadow .25s}
-    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)} .photo{height:220px;position:relative;background:#ddd}
-    .photo img{width:100%;height:100%;object-fit:cover;display:block}.tag{position:absolute;top:13px;right:13px;background:rgba(255,253,248,.92);color:var(--green);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:700;backdrop-filter:blur(7px)}
-    .content{padding:19px}.title-row{display:flex;justify-content:space-between;gap:10px;align-items:start}.title{font-size:18px;font-weight:800;color:var(--green);margin:0}.rating{color:#d97936;font-size:12px;white-space:nowrap}.desc{font-size:12px;line-height:2;color:#70776f;margin:10px 0 13px}
-    .extras{border-top:1px dashed var(--line);padding-top:13px}.extras-label{font-size:10px;color:#969c95;margin-bottom:7px}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{background:#f2eee4;color:#5b655e;padding:5px 8px;border-radius:8px;font-size:10px}
-    .bottom{display:flex;align-items:center;justify-content:space-between;margin-top:17px;padding-top:15px;border-top:1px solid var(--line)}.price{font-weight:800;color:var(--green);font-size:17px}.price span{font-size:10px;font-weight:500;color:var(--muted);margin-right:3px}
-    .details{border:0;background:var(--green);color:#fff;padding:9px 13px;border-radius:10px;font:600 11px Vazirmatn;cursor:pointer}
-    .empty{display:none;background:var(--paper);border:1px dashed #cfc7b8;padding:25px;border-radius:20px;color:var(--muted);text-align:center;font-size:13px}
-    footer{background:var(--green);color:#d7e2dc;text-align:center;padding:32px 20px;font-size:12px}footer strong{color:#fff}
-    .modal{position:fixed;inset:0;background:rgba(9,26,20,.6);backdrop-filter:blur(7px);display:none;place-items:center;padding:20px;z-index:20}.modal.open{display:grid}
-    .modal-card{background:var(--paper);max-width:520px;width:100%;border-radius:25px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.25)}.modal-img{width:100%;height:260px;object-fit:cover}.modal-body{padding:23px}.close{float:left;border:0;background:#eee9df;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:18px}
-    @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-badge{display:none}}
-    @media(max-width:560px){.hero{padding:42px 18px 38px}.controls,main,.categories{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr}.photo{height:230px}.control-box{padding:10px}.hero p{font-size:18px}}
-  
-/* نظم و پدینگ اختصاصی بخش نوشیدنی */
-section[data-section="drink"]{
-  margin-top: 20px;
-  border-radius: 20px;
-}
-section[data-section="drink"] .grid{
-  padding: 4px;
-  align-items: stretch;
-}
-section[data-section="drink"] .product{
-  max-width: 360px;
-  margin: 0 auto;
-  width: 100%;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-</style>
+  <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
+
   <div class="topbar"></div>
+
   <header>
     <div class="hero">
       <div>
-        <div class="brand"><div class="mark">د</div><div><small>مجموعه دیدار</small><strong>سیسنگان</strong></div></div>
+        <div class="brand">
+          <div class="mark">د</div>
+          <div>
+            <small>مجموعه دیدار</small>
+            <strong>سیسنگان</strong>
+          </div>
+        </div>
+
         <h1>شـروع یـک روز خــوب</h1>
         <p>صبحـانه ایرانی و فرنگی در دیـدار سیـسـنگــان</p>
       </div>
-      <div class="hero-badge"><b>☕  منوی صبحانه</b><span>Fresh · Warm · Delicious</span></div>
+
+      <div class="hero-badge">
+        <b>☕ منوی صبحانه</b>
+        <span>Fresh · Warm · Delicious</span>
+      </div>
     </div>
   </header>
 
   <div class="controls">
     <div class="control-box">
-      <div class="search"><span>⌕</span><input id="search" type="search" placeholder="جستجو در منوی صبحانه..."></div>
+      <div class="search">
+        <span>⌕</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="جستجو در منوی صبحانه..."
+        >
+      </div>
     </div>
   </div>
 
@@ -99,197 +64,511 @@ section[data-section="drink"] .product{
   </nav>
 
   <main>
-    <!-- دسته ۱: ۳ محصول -->
+
+    <!-- صبحانه تنوری -->
     <section class="section" data-section="bakery">
+
       <div class="section-head">
-        <div><h2>صبحانه تنوری</h2><p>صبحانه‌های گرم، تنوری و نان‌های ویژه</p></div>
+        <div>
+          <h2>صبحانه تنوری</h2>
+          <p>صبحانه‌های گرم، تنوری و نان‌های ویژه</p>
+        </div>
         <div class="section-count">۳ محصول</div>
       </div>
+
       <div class="grid">
 
-        <article class="card product" data-category="bakery" data-name="انگلیش مافین">
-          <div class="photo"><img src="https://s15.uupload.ir/files/ardijoon/english_muffin.jpg" alt="انگلیش مافین دیدار"><span class="tag">پیشنهاد دیدار</span></div>
+        <article
+          class="card product"
+          data-category="bakery"
+          data-name="انگلیش مافین"
+        >
+          <div class="photo">
+            <img
+              src="https://s15.uupload.ir/files/ardijoon/english_muffin.jpg"
+              alt="انگلیش مافین دیدار"
+            >
+            <span class="tag">پیشنهاد دیدار</span>
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">انگلیش مافین</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">خوراک لوبیا، سوسیس چوریتزو، میکس سبزیجات، پنیر ورقه‌ای چدار، تخم مرغ عسلی، قارچ و بیکن گوشت.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">خوراک لوبیا</span><span class="chip">سوسیس چوریتزو</span><span class="chip">میکس سبزیجات</span><span class="chip">چدار</span><span class="chip">تخم مرغ عسلی</span><span class="chip">قارچ</span><span class="chip">بیکن گوشت</span>
-            </div></div>
-            <div class="bottom"><div class="price">1.350.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">انگلیش مافین</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              خوراک لوبیا، سوسیس چوریتزو، میکس سبزیجات،
+              پنیر ورقه‌ای چدار، تخم مرغ عسلی، قارچ و بیکن گوشت.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">خوراک لوبیا</span>
+                <span class="chip">سوسیس چوریتزو</span>
+                <span class="chip">میکس سبزیجات</span>
+                <span class="chip">چدار</span>
+                <span class="chip">تخم مرغ عسلی</span>
+                <span class="chip">قارچ</span>
+                <span class="chip">بیکن گوشت</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                1.350.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
-        <article class="card product" data-category="bakery" data-name="خاچاپوری">
-          <div class="photo"><img src="https://s25.uupload.ir/files/ardijoon/khachapori.jpg" alt="خاچاپوری"></div>
+
+        <article
+          class="card product"
+          data-category="bakery"
+          data-name="خاچاپوری"
+        >
+          <div class="photo">
+            <img
+              src="https://s25.uupload.ir/files/ardijoon/khachapori.jpg"
+              alt="خاچاپوری"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">خاچاپوری</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">خمیر خاچاپوری، تخم مرغ، پنیر خامه‌ای، پنیر میکس موزارلا با گودا و پنیر فیلادلفیا.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">خمیر خاچاپوری</span><span class="chip">تخم مرغ</span><span class="chip">پنیر خامه‌ای</span><span class="chip">موزارلا</span><span class="chip">گودا</span><span class="chip">فیلادلفیا</span>
-            </div></div>
-            <div class="bottom"><div class="price">850.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">خاچاپوری</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              خمیر خاچاپوری، تخم مرغ، پنیر خامه‌ای،
+              پنیر میکس موزارلا با گودا و پنیر فیلادلفیا.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">خمیر خاچاپوری</span>
+                <span class="chip">تخم مرغ</span>
+                <span class="chip">پنیر خامه‌ای</span>
+                <span class="chip">موزارلا</span>
+                <span class="chip">گودا</span>
+                <span class="chip">فیلادلفیا</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                850.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
-        <article class="card product" data-category="bakery" data-name="کروسان بیکن">
-          <div class="photo"><img src="https://s21.uupload.ir/files/ardijoon/krosan-bacon.jpg" alt="کروسان بیکن"></div>
+
+        <article
+          class="card product"
+          data-category="bakery"
+          data-name="کروسان بیکن"
+        >
+          <div class="photo">
+            <img
+              src="https://s21.uupload.ir/files/ardijoon/krosan-bacon.jpg"
+              alt="کروسان بیکن"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">کروسان بیکن</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">تخم مرغ، نان کروسان تازه، قارچ، بیکن گوساله و پنیر چدار. یک طعم و تجـربه جدید</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">تخم مرغ</span><span class="chip">نان کروسـان تـازه</span><span class="chip">قارچ جنگلی</span><span class="chip">بیکن گوساله</span><span class="chip">پنیر چدار</span>
-            </div></div>
-            <div class="bottom"><div class="price">900.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">کروسان بیکن</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              تخم مرغ، نان کروسان تازه، قارچ، بیکن گوساله
+              و پنیر چدار. یک طعم و تجـربه جدید
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">تخم مرغ</span>
+                <span class="chip">نان کروسـان تـازه</span>
+                <span class="chip">قارچ جنگلی</span>
+                <span class="chip">بیکن گوساله</span>
+                <span class="chip">پنیر چدار</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                900.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- دسته ۲: ۲ محصول -->
+
+    <!-- صبحانه تست -->
     <section class="section" data-section="toast">
+
       <div class="section-head">
-        <div><h2>صبحانه تُست</h2><p>ترکیب‌های تازه با نان و آواکادو</p></div>
+        <div>
+          <h2>صبحانه تُست</h2>
+          <p>ترکیب‌های تازه با نان و آواکادو</p>
+        </div>
         <div class="section-count">۲ محصول</div>
       </div>
+
       <div class="grid">
 
-        <article class="card product" data-category="toast" data-name="تُستِ آواکادو">
-          <div class="photo"><img src="https://s21.uupload.ir/files/ardijoon/avacado.toast.jpg" alt="تُستِ آواکادو"></div>
+        <article
+          class="card product"
+          data-category="toast"
+          data-name="تُستِ آواکادو"
+        >
+          <div class="photo">
+            <img
+              src="https://s21.uupload.ir/files/ardijoon/avacado.toast.jpg"
+              alt="تُستِ آواکادو"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">تُستِ آواکادو</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">نان خمیر ترش، آواکادو، چیپس بیکن، پنیر مزه‌دار شده، سُس هالندایز و تخم مرغ عسلی.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">نان خمیر ترش</span><span class="chip">آواکادو</span><span class="chip">چیپس بیکن</span><span class="chip">پنیر مزه‌دار</span><span class="chip">هالندایز</span><span class="chip">تخم مرغ عسلی</span>
-            </div></div>
-            <div class="bottom"><div class="price">1.100.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">تُستِ آواکادو</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              نان خمیر ترش، آواکادو، چیپس بیکن،
+              پنیر مزه‌دار شده، سُس هالندایز و تخم مرغ عسلی.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">نان خمیر ترش</span>
+                <span class="chip">آواکادو</span>
+                <span class="chip">چیپس بیکن</span>
+                <span class="chip">پنیر مزه‌دار</span>
+                <span class="chip">هالندایز</span>
+                <span class="chip">تخم مرغ عسلی</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                1.100.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
-        <article class="card product" data-category="toast" data-name="تُستِ خوراک زبان با سُسِ هالندایز">
-          <div class="photo"><img src="https://s5.uupload.ir/files/ardijoon/toast-haldiz.jpg" alt="تُستِ خوراک زبان با سُسِ هالندایز"></div>
+
+        <article
+          class="card product"
+          data-category="toast"
+          data-name="تُستِ خوراک زبان با سُسِ هالندایز"
+        >
+          <div class="photo">
+            <img
+              src="https://s5.uupload.ir/files/ardijoon/toast-haldiz.jpg"
+              alt="تُستِ خوراک زبان با سُسِ هالندایز"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">تُستِ خوراک زبان با سُسِ هالندایز</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">نان فوکاچیا، زبان گوساله کامفیت شده، روکولا، تخم مرغ عسلی، سُس هالندایز، چیپس سیب زمینی، گوجه گیلاسی، میکس سبزیجات و دیپ قارچ.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">نان فوکاچیا</span><span class="chip">زبان گوساله</span><span class="chip">روکولا</span><span class="chip">تخم مرغ عسلی</span><span class="chip">هالندایز</span><span class="chip">چیپس سیب زمینی</span><span class="chip">گوجه گیلاسی</span><span class="chip">میکس سبزیجات</span><span class="chip">دیپ قارچ</span>
-            </div></div>
-            <div class="bottom"><div class="price">1.150.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">
+                تُستِ خوراک زبان با سُسِ هالندایز
+              </h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              نان فوکاچیا، زبان گوساله کامفیت شده، روکولا،
+              تخم مرغ عسلی، سُس هالندایز، چیپس سیب زمینی،
+              گوجه گیلاسی، میکس سبزیجات و دیپ قارچ.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">نان فوکاچیا</span>
+                <span class="chip">زبان گوساله</span>
+                <span class="chip">روکولا</span>
+                <span class="chip">تخم مرغ عسلی</span>
+                <span class="chip">هالندایز</span>
+                <span class="chip">چیپس سیب زمینی</span>
+                <span class="chip">گوجه گیلاسی</span>
+                <span class="chip">میکس سبزیجات</span>
+                <span class="chip">دیپ قارچ</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                1.150.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- دسته ۳: ۳ محصول + چای -->
+
+    <!-- صبحانه بر پایه ترتیا -->
     <section class="section" data-section="tortilla">
+
       <div class="section-head">
-        <div><h2>صبحانه بر پایه تُرتیا</h2><p>انتخاب‌های گرم با تخم مرغ و نوشیدنی کلاسیک</p></div>
+        <div>
+          <h2>صبحانه بر پایه تُرتیا</h2>
+          <p>انتخاب‌های گرم با تخم مرغ و نوشیدنی کلاسیک</p>
+        </div>
         <div class="section-count">۲ محصول</div>
       </div>
+
       <div class="grid">
 
-        <article class="card product" data-category="tortilla" data-name="تُرتیا اسفناج تخم مرغ">
-          <div class="photo"><img src="https://s25.uupload.ir/files/ardijoon/tortia0egg.jpg" alt="تُرتیا اسفناج تخم مرغ"></div>
+        <article
+          class="card product"
+          data-category="tortilla"
+          data-name="تُرتیا اسفناج تخم مرغ"
+        >
+          <div class="photo">
+            <img
+              src="https://s25.uupload.ir/files/ardijoon/tortia0egg.jpg"
+              alt="تُرتیا اسفناج تخم مرغ"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">تُرتیا اسفناج تخم مرغ</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">خمیر تُرتیا، دیپ اسفناج و تخم مرغ، پنیر میکس موزارلا، میکس سبزیجات و گوجه گیلاسی.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">خمیر تُرتیا</span><span class="chip">دیپ اسفناج و تخم مرغ</span><span class="chip">موزارلا</span><span class="chip">میکس سبزیجات</span><span class="chip">گوجه گیلاسی</span>
-            </div></div>
-            <div class="bottom"><div class="price">880.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">تُرتیا اسفناج تخم مرغ</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              خمیر تُرتیا، دیپ اسفناج و تخم مرغ،
+              پنیر میکس موزارلا، میکس سبزیجات و گوجه گیلاسی.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">خمیر تُرتیا</span>
+                <span class="chip">دیپ اسفناج و تخم مرغ</span>
+                <span class="chip">موزارلا</span>
+                <span class="chip">میکس سبزیجات</span>
+                <span class="chip">گوجه گیلاسی</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                880.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
-        <article class="card product" data-category="tortilla" data-name="اُملِت گوجه جنگلی">
-          <div class="photo"><img src="https://s25.uupload.ir/files/ardijoon/omlet.jpg" alt="اُملِت گوجه جنگلی"></div>
+
+        <article
+          class="card product"
+          data-category="tortilla"
+          data-name="اُملِت گوجه جنگلی"
+        >
+          <div class="photo">
+            <img
+              src="https://s25.uupload.ir/files/ardijoon/omlet.jpg"
+              alt="اُملِت گوجه جنگلی"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">اُملِت گوجه جنگلی</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">خمیر تورتیا، تخم مرغ عسلی، مایع اُملِت، پنیر مزه‌دار شده، گوجه گیلاسی و میکس سبزیجات.</p>
-            <div class="extras"><div class="extras-label">مخلفات و ترکیبات</div><div class="chips">
-              <span class="chip">خمیر تورتیا</span><span class="chip">تخم مرغ عسلی</span><span class="chip">مایع اُملِت</span><span class="chip">پنیر مزه‌دار</span><span class="chip">گوجه گیلاسی</span><span class="chip">میکس سبزیجات</span>
-            </div></div>
-            <div class="bottom"><div class="price">750.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">اُملِت گوجه جنگلی</h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              خمیر تورتیا، تخم مرغ عسلی، مایع اُملِت،
+              پنیر مزه‌دار شده، گوجه گیلاسی و میکس سبزیجات.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">مخلفات و ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">خمیر تورتیا</span>
+                <span class="chip">تخم مرغ عسلی</span>
+                <span class="chip">مایع اُملِت</span>
+                <span class="chip">پنیر مزه‌دار</span>
+                <span class="chip">گوجه گیلاسی</span>
+                <span class="chip">میکس سبزیجات</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                750.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
+
 
     <!-- نوشیدنی -->
     <section class="section" data-section="drink">
+
       <div class="section-head">
-        <div><h2>نوشیدنی</h2><p>نوشیدنی‌های گرم برای همراهی صبحانه</p></div>
+        <div>
+          <h2>نوشیدنی</h2>
+          <p>نوشیدنی‌های گرم برای همراهی صبحانه</p>
+        </div>
         <div class="section-count">۱ محصول</div>
       </div>
+
       <div class="grid">
-        <article class="card product" data-category="drink" data-name="چای با نبات و دارچین و هِل">
-          <div class="photo"><img src="https://s21.uupload.ir/files/ardijoon/tea.jpg" alt="چای با نبات و دارچین و هِل"></div>
+
+        <article
+          class="card product"
+          data-category="drink"
+          data-name="چای با نبات و دارچین و هِل"
+        >
+          <div class="photo">
+            <img
+              src="https://s21.uupload.ir/files/ardijoon/tea.jpg"
+              alt="چای با نبات و دارچین و هِل"
+            >
+          </div>
+
           <div class="content">
-            <div class="title-row"><h3 class="title">چای با نبات و دارچین و هِل</h3><div class="rating">★ 4.8</div></div>
-            <p class="desc">چای گرم همراه با نبات، دارچین و هِل.</p>
-            <div class="extras"><div class="extras-label">ترکیبات</div><div class="chips">
-              <span class="chip">چای</span><span class="chip">نبات</span><span class="chip">دارچین</span><span class="chip">هِل</span>
-            </div></div>
-            <div class="bottom"><div class="price">150.000 <span>تومان</span></div><button class="details" onclick="openModal(this)">مشاهده جزئیات</button></div>
+            <div class="title-row">
+              <h3 class="title">
+                چای با نبات و دارچین و هِل
+              </h3>
+              <div class="rating">★ 4.8</div>
+            </div>
+
+            <p class="desc">
+              چای گرم همراه با نبات، دارچین و هِل.
+            </p>
+
+            <div class="extras">
+              <div class="extras-label">ترکیبات</div>
+
+              <div class="chips">
+                <span class="chip">چای</span>
+                <span class="chip">نبات</span>
+                <span class="chip">دارچین</span>
+                <span class="chip">هِل</span>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <div class="price">
+                150.000 <span>تومان</span>
+              </div>
+
+              <button class="details" onclick="openModal(this)">
+                مشاهده جزئیات
+              </button>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
+
   </main>
 
-  <footer><strong>دیدار سیسنگان</strong> · صبحانه‌ای برای یک روز خوب</footer>
+  <footer>
+    <strong>دیدار سیسنگان</strong>
+    · صبحانه‌ای برای یک روز خوب
+  </footer>
 
-  <div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+
+  <!-- Modal -->
+  <div
+    class="modal"
+    id="modal"
+    onclick="if(event.target===this)closeModal()"
+  >
     <div class="modal-card">
-      <img class="modal-img" id="modalImg" src="" alt="">
+
+      <img
+        class="modal-img"
+        id="modalImg"
+        src=""
+        alt=""
+      >
+
       <div class="modal-body">
-        <button class="close" onclick="closeModal()">×</button>
-        <h2 id="modalTitle" style="color:var(--green);margin-top:0"></h2>
-        <p id="modalDesc" style="line-height:2;color:var(--muted)"></p>
-        <b id="modalPrice" style="color:var(--green);font-size:20px"></b>
+
+        <button
+          class="close"
+          onclick="closeModal()"
+        >
+          ×
+        </button>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDesc"></p>
+
+        <b id="modalPrice"></b>
+
       </div>
     </div>
   </div>
 
-<script>
-const buttons=[...document.querySelectorAll('.cat')],
-      sections=[...document.querySelectorAll('.section')],
-      products=[...document.querySelectorAll('.product')];
 
-buttons.forEach(btn=>btn.addEventListener('click',()=>{
-  buttons.forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const f=btn.dataset.filter;
-  sections.forEach(s=>s.style.display=(f==='all'||s.dataset.section===f)?'block':'none');
-}));
+  <script src="./js/script.js"></script>
 
-document.getElementById('search').addEventListener('input',e=>{
-  const q=e.target.value.trim().toLowerCase();
-  products.forEach(p=>{
-    p.style.display=p.dataset.name.toLowerCase().includes(q)||p.innerText.toLowerCase().includes(q)?'':'none';
-  });
-});
-
-function openModal(button){
-  const card=button.closest('.product');
-  const img=card.querySelector('.photo img');
-  document.getElementById('modalImg').src=img ? img.src : '';
-  document.getElementById('modalImg').alt=card.querySelector('.title').innerText;
-  document.getElementById('modalTitle').innerText=card.querySelector('.title').innerText;
-  document.getElementById('modalDesc').innerText=card.querySelector('.desc').innerText;
-  document.getElementById('modalPrice').innerText=card.querySelector('.price').innerText;
-  document.getElementById('modal').classList.add('open');
-}
-
-function closeModal(){
-  document.getElementById('modal').classList.remove('open');
-}
-
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape')closeModal();
-});
-</script>
 </body>
 </html>
