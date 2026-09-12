@@ -1,7 +1,20 @@
+
+/* =========================================================
+   Dana Font
+   ========================================================= */
+
 @font-face {
   font-family: "Dana";
-  src: url("../assets/font/DanaFaNum-Bold.woff2") format("woff2");
-  font-weight: 700;
+  src: url("../assets/font/DanaFaNum-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/font/DanaFaNum-Regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -16,34 +29,54 @@
 
 @font-face {
   font-family: "Dana";
-  src: url("../assets/font/DanaFaNum-light.woff2") format("woff2");
-  font-weight: 300;
+  src: url("../assets/font/DanaFaNum-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Dana";
-  src: url("../assets/font/DanaFaNum-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
+/* =========================================================
+   Theme
+   ========================================================= */
 
 :root {
-  --cream: #f7f1e4;
-  --paper: #fffdf8;
-  --green: #173f32;
-  --green2: #245846;
-  --sage: #dce7d8;
-  --orange: #d97936;
-  --orange2: #ef9a50;
-  --ink: #18231f;
-  --muted: #6f766f;
-  --line: #e6dfd2;
-  --shadow: 0 18px 55px rgba(23, 63, 50, .10);
+  /* Main colors */
+  --cream: #fff4e6;
+  --paper: #fffaf3;
+
+  /* Main orange */
+  --green: #b65324;
+  --green2: #d96f32;
+
+  /* Soft orange / peach */
+  --sage: #f6dfc7;
+
+  /* Accent */
+  --orange: #c85a25;
+  --orange2: #ee914f;
+
+  /* Text */
+  --ink: #3a2418;
+  --muted: #806f63;
+
+  /* Borders */
+  --line: #ead8c5;
+
+  /* Shadows */
+  --shadow: 0 18px 55px rgba(150, 75, 30, 0.12);
+
+  /* Extra theme colors */
+  --cream-dark: #f7e8d5;
+  --cream-light: #fff8ef;
+  --orange-dark: #914018;
+  --orange-light: #f7c99f;
 }
+
+
+/* =========================================================
+   Reset
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -57,6 +90,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
+  direction: rtl;
 }
 
 html,
@@ -68,25 +102,54 @@ select {
   font-family: "Dana", Tahoma, sans-serif;
 }
 
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
+
+/* =========================================================
+   Top Bar
+   ========================================================= */
+
 .topbar {
   height: 6px;
   background: linear-gradient(
     90deg,
-    var(--green),
+    var(--orange-dark),
     var(--orange),
-    var(--green)
+    var(--orange2),
+    var(--orange),
+    var(--orange-dark)
   );
 }
+
+
+/* =========================================================
+   Header / Hero
+   ========================================================= */
 
 header {
   position: relative;
   overflow: hidden;
-  background: var(--green);
+  background:
+    linear-gradient(
+      135deg,
+      #9f461e 0%,
+      #b65324 45%,
+      #c7652e 100%
+    );
   color: #fff;
 }
 
@@ -94,17 +157,30 @@ header::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: .09;
+  opacity: 0.08;
   background-image: radial-gradient(
     circle at 20% 30%,
-    #fff 0 1px,
+    #fff8ed 0 1px,
     transparent 1.5px
   );
   background-size: 24px 24px;
 }
 
+header::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: -160px;
+  top: -220px;
+  border-radius: 50%;
+  background: rgba(255, 220, 180, 0.08);
+  pointer-events: none;
+}
+
 .hero {
   position: relative;
+  z-index: 1;
   max-width: 1180px;
   margin: auto;
   padding: 58px 24px 46px;
@@ -113,6 +189,11 @@ header::before {
   align-items: end;
   gap: 30px;
 }
+
+
+/* =========================================================
+   Brand
+   ========================================================= */
 
 .brand {
   display: flex;
@@ -124,24 +205,33 @@ header::before {
 .mark {
   width: 48px;
   height: 48px;
-  border: 1px solid rgba(255,255,255,.3);
+  border: 1px solid rgba(255, 245, 230, 0.35);
   border-radius: 16px;
   display: grid;
   place-items: center;
   font-weight: 800;
   font-size: 21px;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 25px rgba(70, 25, 8, 0.12);
 }
 
 .brand small {
   display: block;
-  color: #cddbd4;
+  color: #f6d8c1;
   font-size: 12px;
 }
 
 .brand strong {
   font-size: 18px;
+  color: #fffaf5;
 }
+
+
+/* =========================================================
+   Hero Typography
+   ========================================================= */
 
 h1 {
   font-size: clamp(34px, 5vw, 60px);
@@ -149,35 +239,48 @@ h1 {
   margin: 0 0 15px;
   font-weight: 800;
   letter-spacing: -1px;
+  color: #fffaf5;
 }
 
 .hero p {
   margin: 0;
-  color: #d7e2dc;
+  color: #f5d9c5;
   max-width: 590px;
   line-height: 2;
   font-size: 15px;
 }
 
+
+/* =========================================================
+   Hero Badge
+   ========================================================= */
+
 .hero-badge {
-  background: #f5ead7;
-  color: var(--green);
+  background: #fff0dc;
+  color: var(--orange-dark);
   padding: 17px 20px;
   border-radius: 22px;
   min-width: 160px;
   text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,.12);
+  box-shadow: 0 15px 40px rgba(80, 30, 10, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .hero-badge b {
   display: block;
   font-size: 24px;
+  color: var(--orange-dark);
 }
 
 .hero-badge span {
   font-size: 12px;
-  color: #637068;
+  color: #806f63;
 }
+
+
+/* =========================================================
+   Controls / Search
+   ========================================================= */
 
 .controls {
   max-width: 1180px;
@@ -189,7 +292,7 @@ h1 {
 
 .control-box {
   background: var(--paper);
-  border: 1px solid rgba(23,63,50,.08);
+  border: 1px solid rgba(182, 83, 36, 0.1);
   border-radius: 24px;
   box-shadow: var(--shadow);
   padding: 15px;
@@ -205,14 +308,28 @@ h1 {
 
 .search input {
   width: 100%;
-  border: 0;
+  border: 1px solid transparent;
   outline: 0;
-  background: #f5f1e8;
+  background: #fff1df;
   border-radius: 15px;
   padding: 14px 45px 14px 15px;
   font-family: inherit;
   font-size: 14px;
   color: var(--ink);
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.search input::placeholder {
+  color: #a18b7b;
+}
+
+.search input:focus {
+  background: #fffaf3;
+  border-color: var(--orange2);
+  box-shadow: 0 0 0 4px rgba(238, 145, 79, 0.1);
 }
 
 .search span {
@@ -221,7 +338,13 @@ h1 {
   top: 11px;
   font-size: 19px;
   color: var(--muted);
+  pointer-events: none;
 }
+
+
+/* =========================================================
+   Categories
+   ========================================================= */
 
 .categories {
   max-width: 1180px;
@@ -239,22 +362,38 @@ h1 {
 
 .cat {
   white-space: nowrap;
-  border: 1px solid #ddd5c7;
+  border: 1px solid #e5cdb5;
   background: transparent;
   padding: 10px 17px;
   border-radius: 999px;
   font: 600 13px "Dana";
-  color: #536058;
+  color: #765f50;
   cursor: pointer;
-  transition: .2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
 }
 
-.cat.active,
 .cat:hover {
+  background: #f9e1c9;
+  border-color: var(--orange2);
+  color: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+.cat.active {
   background: var(--green);
   border-color: var(--green);
   color: #fff;
+  box-shadow: 0 6px 18px rgba(182, 83, 36, 0.2);
 }
+
+
+/* =========================================================
+   Main
+   ========================================================= */
 
 main {
   max-width: 1180px;
@@ -267,6 +406,11 @@ main {
   scroll-margin-top: 20px;
 }
 
+
+/* =========================================================
+   Section Header
+   ========================================================= */
+
 .section-head {
   display: flex;
   align-items: end;
@@ -277,7 +421,7 @@ main {
 
 .section-head h2 {
   margin: 0;
-  color: var(--green);
+  color: var(--orange-dark);
   font-size: 23px;
 }
 
@@ -289,12 +433,17 @@ main {
 
 .section-count {
   background: var(--sage);
-  color: var(--green);
+  color: var(--orange-dark);
   padding: 7px 11px;
   border-radius: 10px;
   font-size: 11px;
   font-weight: 700;
 }
+
+
+/* =========================================================
+   Product Grid
+   ========================================================= */
 
 .grid {
   display: grid;
@@ -302,26 +451,39 @@ main {
   gap: 18px;
 }
 
+
+/* =========================================================
+   Product Card
+   ========================================================= */
+
 .card {
   background: var(--paper);
-  border: 1px solid rgba(23,63,50,.08);
+  border: 1px solid rgba(182, 83, 36, 0.08);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(23,63,50,.055);
+  box-shadow: 0 10px 30px rgba(150, 75, 30, 0.055);
   transition:
-    transform .25s,
-    box-shadow .25s;
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
+  border-color: rgba(182, 83, 36, 0.16);
 }
+
+
+/* =========================================================
+   Product Image
+   ========================================================= */
 
 .photo {
   height: 220px;
   position: relative;
-  background: #ddd;
+  background: #ead7c2;
+  overflow: hidden;
 }
 
 .photo img {
@@ -329,20 +491,36 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.45s ease;
 }
+
+.card:hover .photo img {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   Product Tag
+   ========================================================= */
 
 .tag {
   position: absolute;
   top: 13px;
   right: 13px;
-  background: rgba(255,253,248,.92);
-  color: var(--green);
+  background: rgba(255, 250, 243, 0.94);
+  color: var(--orange-dark);
   border-radius: 999px;
   padding: 7px 10px;
   font-size: 10px;
   font-weight: 700;
   backdrop-filter: blur(7px);
+  box-shadow: 0 5px 15px rgba(80, 30, 10, 0.08);
 }
+
+
+/* =========================================================
+   Card Content
+   ========================================================= */
 
 .content {
   padding: 19px;
@@ -358,7 +536,7 @@ main {
 .title {
   font-size: 18px;
   font-weight: 800;
-  color: var(--green);
+  color: var(--orange-dark);
   margin: 0;
 }
 
@@ -371,9 +549,14 @@ main {
 .desc {
   font-size: 12px;
   line-height: 2;
-  color: #70776f;
+  color: #806f63;
   margin: 10px 0 13px;
 }
+
+
+/* =========================================================
+   Extras
+   ========================================================= */
 
 .extras {
   border-top: 1px dashed var(--line);
@@ -382,7 +565,7 @@ main {
 
 .extras-label {
   font-size: 10px;
-  color: #969c95;
+  color: #a18f81;
   margin-bottom: 7px;
 }
 
@@ -393,12 +576,17 @@ main {
 }
 
 .chip {
-  background: #f2eee4;
-  color: #5b655e;
+  background: #f8e9d7;
+  color: #765642;
   padding: 5px 8px;
   border-radius: 8px;
   font-size: 10px;
 }
+
+
+/* =========================================================
+   Card Bottom
+   ========================================================= */
 
 .bottom {
   display: flex;
@@ -411,7 +599,7 @@ main {
 
 .price {
   font-weight: 800;
-  color: var(--green);
+  color: var(--orange-dark);
   font-size: 17px;
 }
 
@@ -430,12 +618,27 @@ main {
   border-radius: 10px;
   font: 600 11px "Dana";
   cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
+
+.details:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(182, 83, 36, 0.2);
+}
+
+
+/* =========================================================
+   Empty State
+   ========================================================= */
 
 .empty {
   display: none;
   background: var(--paper);
-  border: 1px dashed #cfc7b8;
+  border: 1px dashed #d9c4ad;
   padding: 25px;
   border-radius: 20px;
   color: var(--muted);
@@ -443,80 +646,10 @@ main {
   font-size: 13px;
 }
 
-footer {
-  background: var(--green);
-  color: #d7e2dc;
-  text-align: center;
-  padding: 32px 20px;
-  font-size: 12px;
-}
 
-footer strong {
-  color: #fff;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(9,26,20,.6);
-  backdrop-filter: blur(7px);
-  display: none;
-  place-items: center;
-  padding: 20px;
-  z-index: 20;
-}
-
-.modal.open {
-  display: grid;
-}
-
-.modal-card {
-  background: var(--paper);
-  max-width: 520px;
-  width: 100%;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 30px 90px rgba(0,0,0,.25);
-}
-
-.modal-img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.modal-body {
-  padding: 23px;
-}
-
-.close {
-  float: left;
-  border: 0;
-  background: #eee9df;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-#modalTitle {
-  color: var(--green);
-  margin-top: 0;
-}
-
-#modalDesc {
-  line-height: 2;
-  color: var(--muted);
-}
-
-#modalPrice {
-  color: var(--green);
-  font-size: 20px;
-}
-
-
-/* نظم و پدینگ اختصاصی بخش نوشیدنی */
+/* =========================================================
+   Drink Section
+   ========================================================= */
 
 section[data-section="drink"] {
   margin-top: 20px;
@@ -535,7 +668,151 @@ section[data-section="drink"] .product {
 }
 
 
-/* Responsive */
+/* =========================================================
+   Footer
+   ========================================================= */
+
+footer {
+  background:
+    linear-gradient(
+      135deg,
+      #9f461e,
+      #b65324
+    );
+  color: #f3d8c3;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 12px;
+}
+
+footer strong {
+  color: #fffaf5;
+}
+
+
+/* =========================================================
+   Modal
+   ========================================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 25, 10, 0.62);
+  backdrop-filter: blur(7px);
+  display: none;
+  place-items: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.modal.open {
+  display: grid;
+}
+
+.modal-card {
+  background: var(--paper);
+  max-width: 520px;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(50, 20, 5, 0.28);
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 23px;
+}
+
+.close {
+  float: left;
+  border: 0;
+  background: #f3e5d5;
+  color: var(--orange-dark);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.close:hover {
+  background: #edcfb1;
+  transform: rotate(5deg);
+}
+
+#modalTitle {
+  color: var(--orange-dark);
+  margin-top: 0;
+}
+
+#modalDesc {
+  line-height: 2;
+  color: var(--muted);
+}
+
+#modalPrice {
+  color: var(--orange-dark);
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   Selection
+   ========================================================= */
+
+::selection {
+  background: #efb17d;
+  color: #3a2418;
+}
+
+
+/* =========================================================
+   Scrollbar
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7e9d8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d99a6b;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c87945;
+}
+
+
+/* =========================================================
+   Responsive — Tablet
+   ========================================================= */
 
 @media (max-width: 850px) {
 
@@ -551,6 +828,11 @@ section[data-section="drink"] .product {
     display: none;
   }
 }
+
+
+/* =========================================================
+   Responsive — Mobile
+   ========================================================= */
 
 @media (max-width: 560px) {
 
@@ -575,9 +857,74 @@ section[data-section="drink"] .product {
 
   .control-box {
     padding: 10px;
+    border-radius: 19px;
   }
 
   .hero p {
-    font-size: 18px;
+    font-size: 15px;
+  }
+
+  .brand {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .section-head {
+    align-items: center;
+  }
+
+  .section-head h2 {
+    font-size: 20px;
+  }
+
+  .card {
+    border-radius: 21px;
+  }
+
+  .modal {
+    padding: 14px;
+  }
+
+  .modal-card {
+    border-radius: 21px;
+  }
+
+  .modal-img {
+    height: 220px;
+  }
+}
+
+
+/* =========================================================
+   Small Mobile
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .controls,
+  main,
+  .categories {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .photo {
+    height: 210px;
+  }
+
+  .content {
+    padding: 16px;
   }
 }
